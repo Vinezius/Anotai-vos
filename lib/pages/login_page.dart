@@ -1,5 +1,6 @@
 import 'package:anotai_vos/main.dart';
 import 'package:anotai_vos/pages/cadastro_page.dart';
+import 'package:anotai_vos/pages/initial_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -63,11 +64,12 @@ class _LoginPageState extends State<LoginPage> {
                     ElevatedButton(
                       onPressed: () {
                         formKey.currentState!.validate()
-                            ? Navigator.push(
+                            ? Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        MyHomePage(title: 'Home')),
+                                        InitialPage()),
+                                        (Route<dynamic> route) => false
                               )
                             : formKey.currentState!.validate();
                       },

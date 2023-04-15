@@ -102,10 +102,11 @@ class _CadastroPageState extends State<CadastroPage> {
                         ElevatedButton(
                           onPressed: () {
                             formKey.currentState!.validate()
-                                ? Navigator.push(
+                                ? Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => LoginPage()),
+                                        (Route<dynamic> route) => false
                                   )
                                 : formKey.currentState!.validate();
                           },
