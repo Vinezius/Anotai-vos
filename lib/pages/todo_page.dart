@@ -1,4 +1,5 @@
 import 'package:anotai_vos/models/todo.dart';
+import 'package:anotai_vos/pages/open_todo_page.dart';
 import 'package:anotai_vos/repositories/todo_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -13,11 +14,12 @@ class ToDoPage extends StatefulWidget {
 class _ToDoPageState extends State<ToDoPage> {
   final formatacaoData = DateFormat('dd-MM-yyyy');
   DateTime dataAtual = DateTime.now();
-  @override
-  Widget build(BuildContext context) {
+
     final tabela = ToDoRepository.tabela;
     String input = '';
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('To-do'),
@@ -54,7 +56,7 @@ class _ToDoPageState extends State<ToDoPage> {
                                     data: formatacaoData
                                         .format(dataAtual)
                                         .replaceAll('-', '/'),
-                                    item: ['Item 1', 'Item 2']);
+                                        );
                               });
                               Navigator.of(context).pop();
                             },
@@ -65,12 +67,14 @@ class _ToDoPageState extends State<ToDoPage> {
             },
           ),
         ),
-        body: ListView.separated(
+        body: 
+        ListView.separated(
             itemBuilder: (BuildContext context, int todo) {
               return GestureDetector(
                 onTap: () {
-                  print(
-                      "Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
+                 Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => OpenToDoPage()));
                 },
                 child: ListTile(
                   title: Text(tabela[todo].titulo),
@@ -80,6 +84,8 @@ class _ToDoPageState extends State<ToDoPage> {
             },
             padding: EdgeInsets.all(16),
             separatorBuilder: (_, __) => Divider(),
-            itemCount: tabela.length));
+            itemCount: tabela.length)
+
+    );
   }
 }

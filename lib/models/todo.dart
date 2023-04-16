@@ -1,12 +1,15 @@
+import 'package:anotai_vos/models/Item.dart';
+
 class ToDo {
 
+//Integer id;
   String titulo;
   String data;
-  List item;
+  Item? item;
 
   ToDo({
     required this.titulo,
     required this.data,
-    required this.item,
+    this.item,
   });
 }

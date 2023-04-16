@@ -67,8 +67,7 @@ class _NotaPageState extends State<NotaPage> {
               return GestureDetector(
                 onTap: () {
                   print("nota: $nota");
-                  print(
-                      "Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
+                  print("Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
                 },
                 child: ListTile(
                   title: Text(tabela[nota].titulo),
