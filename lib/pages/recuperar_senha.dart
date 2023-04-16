@@ -1,24 +1,23 @@
-import 'package:anotai_vos/main.dart';
 import 'package:anotai_vos/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class CadastroPage extends StatefulWidget {
-  const CadastroPage({super.key});
+class RecuperarSenhaPage extends StatefulWidget {
+  const RecuperarSenhaPage({super.key});
 
   @override
-  State<CadastroPage> createState() => _CadastroPageState();
+  State<RecuperarSenhaPage> createState() => _RecuperarSenhaPageState();
 }
 
-class _CadastroPageState extends State<CadastroPage> {
+class _RecuperarSenhaPageState extends State<RecuperarSenhaPage> {
   final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        title: const Text("Recuperar Senha"),
         centerTitle: true,
       ),
       body: Form(
@@ -31,53 +30,10 @@ class _CadastroPageState extends State<CadastroPage> {
               child: TextFormField(
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: "Primeiro nome",
+                  labelText: "Informe seu e-mail",
                 ),
                 validator: (value) {
-                  return value!.isEmpty ? "Informe seu primeiro nome!" : null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Sobrenome",
-                ),
-                validator: (value) {
-                  return value!.isEmpty ? "Informe seu sobrenome!" : null;
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(24),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "E-mail",
-                ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Informe seu e-mail!";
-                  } else if (!value.contains('@')) {
-                    return "Insira um e-mail válido.";
-                  }
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-              child: TextFormField(
-                obscureText: true,
-                // controller: _email,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Senha",
-                ),
-                validator: (value) {
-                  return value!.isEmpty ? "Informe sua senha!" : null;
+                  return value!.isEmpty ? "Informe seu e-mail!" : null;
                 },
               ),
             ),
@@ -93,11 +49,15 @@ class _CadastroPageState extends State<CadastroPage> {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            formKey.currentState?.reset();
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()),
+                                (Route<dynamic> route) => false);
                           },
                           child: const Padding(
                             padding: EdgeInsets.all(16),
-                            child: Text("Limpar"),
+                            child: Text("Voltar"),
                           ),
                         ),
                         ElevatedButton(
@@ -112,7 +72,7 @@ class _CadastroPageState extends State<CadastroPage> {
                           },
                           child: const Padding(
                             padding: EdgeInsets.all(16),
-                            child: Text("Cadastrar"),
+                            child: Text("Enviar e-mail"),
                           ),
                         ),
                       ],

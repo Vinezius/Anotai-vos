@@ -1,11 +1,13 @@
 import 'package:anotai_vos/main.dart';
 import 'package:anotai_vos/pages/cadastro_page.dart';
 import 'package:anotai_vos/pages/initial_page.dart';
+import 'package:anotai_vos/pages/recuperar_senha.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -16,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
+        centerTitle: true,
       ),
       body: Form(
         key: formKey,
@@ -67,10 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                             ? Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        InitialPage()),
-                                        (Route<dynamic> route) => false
-                              )
+                                    builder: (context) => InitialPage()),
+                                (Route<dynamic> route) => false)
                             : formKey.currentState!.validate();
                       },
                       child: const Padding(
@@ -90,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: RichText(
                         text: TextSpan(
                           text: "Ainda não tem uma conta? ",
-                          style: TextStyle(color: Colors.black, fontSize: 16.0),
+                          style: TextStyle(color: Colors.black, fontSize: 15.0),
                           children: [
                             TextSpan(
                               text: "Cadastre-se",
@@ -101,9 +102,34 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             TextSpan(
-                              text: " clicando aqui",
+                              text: " clicando aqui!",
                               style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecuperarSenhaPage()),
+                        );
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Esqueceu a senha?",
+                          style: TextStyle(color: Colors.black, fontSize: 15.0),
+                          children: [
+                            TextSpan(
+                              text: " Recupere clicando aqui!",
+                              style: TextStyle(
+                                color: Colors.green,
                                 fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.none,
                               ),
