@@ -1,6 +1,7 @@
 import 'package:anotai_vos/main.dart';
 import 'package:anotai_vos/pages/cadastro_page.dart';
-import 'package:anotai_vos/pages/initial_page.dart';
+import 'package:anotai_vos/pages/nav_page.dart';
+import 'package:anotai_vos/pages/nota_page.dart';
 import 'package:anotai_vos/pages/recuperar_senha.dart';
 import 'package:flutter/material.dart';
 
@@ -70,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                             ? Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => InitialPage()),
+                                    builder: (context) => NavPage()),
                                 (Route<dynamic> route) => false)
                             : formKey.currentState!.validate();
                       },
