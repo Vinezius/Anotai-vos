@@ -41,15 +41,14 @@ class _NavPageState extends State<NavPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: paginaAtual,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.note_add), label: 'Notas'),
-          BottomNavigationBarItem(icon: Icon(Icons.check_box), label: "To-do List"), 
+          BottomNavigationBarItem(
+              icon: Icon(Icons.note_add_outlined), label: 'Notas'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.check_box_outlined), label: "To-do List"),
         ],
         onTap: (pagina) {
-          pc.animateToPage(
-            pagina, 
-            duration: Duration(milliseconds: 400), 
-            curve: Curves.ease
-          );
+          pc.animateToPage(pagina,
+              duration: Duration(milliseconds: 400), curve: Curves.ease);
         },
       ),
     );
