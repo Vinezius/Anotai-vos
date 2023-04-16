@@ -88,12 +88,12 @@ class _LoginPageState extends State<LoginPage> {
                     child: RichText(
                       text: TextSpan(
                         text: "Ainda não tem uma conta? ",
-                        style: TextStyle(color: Colors.black, fontSize: 15.0),
+                        style: TextStyle(color: Colors.white, fontSize: 15.0),
                         children: [
                           TextSpan(
                             text: "Cadastre-se",
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontWeight: FontWeight.normal,
                               decoration: TextDecoration.none,
                             ),
@@ -121,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: RichText(
                       text: TextSpan(
                         text: "Esqueceu a senha?",
-                        style: TextStyle(color: Colors.black, fontSize: 15.0),
+                        style: TextStyle(color: Colors.white, fontSize: 15.0),
                         children: [
                           TextSpan(
                             text: " Recupere clicando aqui!",
