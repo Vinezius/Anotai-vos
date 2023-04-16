@@ -17,6 +17,7 @@ class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Cadastro'),
         centerTitle: true,
@@ -82,43 +83,39 @@ class _CadastroPageState extends State<CadastroPage> {
               ),
             ),
             Expanded(
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                margin: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            formKey.currentState?.reset();
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.all(16),
-                            child: Text("Limpar"),
-                          ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          formKey.currentState?.reset();
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text("Limpar"),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            formKey.currentState!.validate()
-                                ? Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginPage()),
-                                    (Route<dynamic> route) => false)
-                                : formKey.currentState!.validate();
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.all(16),
-                            child: Text("Cadastrar"),
-                          ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          formKey.currentState!.validate()
+                              ? Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()),
+                                  (Route<dynamic> route) => false)
+                              : formKey.currentState!.validate();
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text("Cadastrar"),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],

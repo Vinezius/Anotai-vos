@@ -59,88 +59,83 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Expanded(
-              child: Container(
-                alignment: Alignment.bottomRight,
-                margin: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        formKey.currentState!.validate()
-                            ? Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NavPage()),
-                                (Route<dynamic> route) => false)
-                            : formKey.currentState!.validate();
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.all(16),
-                        child: Text("Entrar"),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      formKey.currentState!.validate()
+                          ? Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavPage()),
+                              (Route<dynamic> route) => false)
+                          : formKey.currentState!.validate();
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text("Entrar"),
+                    ),
+                  ),
+                  SizedBox(height: 20, width: 50),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CadastroPage()),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Ainda não tem uma conta? ",
+                        style: TextStyle(color: Colors.black, fontSize: 15.0),
+                        children: [
+                          TextSpan(
+                            text: "Cadastre-se",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                          TextSpan(
+                            text: " clicando aqui!",
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 20, width: 50),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CadastroPage()),
-                        );
-                      },
-                      child: RichText(
-                        text: TextSpan(
-                          text: "Ainda não tem uma conta? ",
-                          style: TextStyle(color: Colors.black, fontSize: 15.0),
-                          children: [
-                            TextSpan(
-                              text: "Cadastre-se",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.none,
-                              ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RecuperarSenhaPage()),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Esqueceu a senha?",
+                        style: TextStyle(color: Colors.black, fontSize: 15.0),
+                        children: [
+                          TextSpan(
+                            text: " Recupere clicando aqui!",
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
                             ),
-                            TextSpan(
-                              text: " clicando aqui!",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RecuperarSenhaPage()),
-                        );
-                      },
-                      child: RichText(
-                        text: TextSpan(
-                          text: "Esqueceu a senha?",
-                          style: TextStyle(color: Colors.black, fontSize: 15.0),
-                          children: [
-                            TextSpan(
-                              text: " Recupere clicando aqui!",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
