@@ -13,7 +13,7 @@ Projeto desenvolvido para a matéria de Desenvolvimento para Dispositivos Móvei
 2. **Rafael Alonzo de Oliveira**:
 	Telas de Notas, To-do, nav, criação de notas e to-do, listagem, visualização da nota de To-do 
 
-3. **Vinícius de Souza Alves**: Telas e form de login, cadastro e recuperação de senha e suas validações, formatação das datas e tela inicial do app(anterior ao login).
+3. **Vinícius de Souza Alves**: Telas e form de login, cadastro e recuperação de senha e suas validações, formatação das datas, feedback e tela inicial do app(anterior ao login).
 
 ---
 

@@ -15,8 +15,8 @@ class _ToDoPageState extends State<ToDoPage> {
   final formatacaoData = DateFormat('dd-MM-yyyy');
   DateTime dataAtual = DateTime.now();
 
-    final tabela = ToDoRepository.tabela;
-    String input = '';
+  final tabela = ToDoRepository.tabela;
+  String input = '';
 
   @override
   Widget build(BuildContext context) {
@@ -52,29 +52,32 @@ class _ToDoPageState extends State<ToDoPage> {
                             onPressed: () {
                               setState(() {
                                 ToDo(
-                                    titulo: input,
-                                    data: formatacaoData
-                                        .format(dataAtual)
-                                        .replaceAll('-', '/'),
-                                        );
+                                  titulo: input,
+                                  data: formatacaoData
+                                      .format(dataAtual)
+                                      .replaceAll('-', '/'),
+                                );
                               });
                               Navigator.of(context).pop();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Erro ao criar to-do.'),
+                                ),
+                              );
                             },
-                            child: Text("ADD"))
+                            child: Text("Adicionar"))
                       ],
                     );
                   });
             },
           ),
         ),
-        body: 
-        ListView.separated(
+        body: ListView.separated(
             itemBuilder: (BuildContext context, int todo) {
               return GestureDetector(
                 onTap: () {
-                 Navigator.push(
-                  context, 
-                  MaterialPageRoute(builder: (context) => OpenToDoPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => OpenToDoPage()));
                 },
                 child: ListTile(
                   title: Text(tabela[todo].titulo),
@@ -84,8 +87,6 @@ class _ToDoPageState extends State<ToDoPage> {
             },
             padding: EdgeInsets.all(16),
             separatorBuilder: (_, __) => Divider(),
-            itemCount: tabela.length)
-
-    );
+            itemCount: tabela.length));
   }
 }

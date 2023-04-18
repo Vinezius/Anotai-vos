@@ -54,6 +54,11 @@ class _NotaPageState extends State<NotaPage> {
                                     conteudo: '80, 8080, 20000, 3268');
                               });
                               Navigator.of(context).pop();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Erro ao criar nota.'),
+                                ),
+                              );
                             },
                             child: Text("Criar"))
                       ],
@@ -67,7 +72,8 @@ class _NotaPageState extends State<NotaPage> {
               return GestureDetector(
                 onTap: () {
                   print("nota: $nota");
-                  print("Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
+                  print(
+                      "Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
                 },
                 child: ListTile(
                   title: Text(tabela[nota].titulo),
