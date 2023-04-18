@@ -4,6 +4,10 @@ Projeto desenvolvido para a matéria de Desenvolvimento para Dispositivos Móvei
 
 ---
 
+## **[Link para o repositório](https://github.com/Vinezius/anotai_vos)
+
+------------------------------------------
+
 
 ## **Integrantes do grupo e o que desenvolveram**
 
@@ -32,10 +36,11 @@ Ao finalizar o clone, é necessário rodar o comando `flutter create .` para bui
 
 ### **Bugs 🪲**
 
----
+1. Incorrect use of ParentDataWidget.
 
 
 ### **Funcionalidades Faltantes ❌**
 
 1. Criação das notas(Atualmente todas estão mockadas no código)
 2. Dinamização das rotas
+3. Segunda etapa da recuperação de senha

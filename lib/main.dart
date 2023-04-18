@@ -1,4 +1,5 @@
 import 'package:anotai_vos/pages/cadastro_page.dart';
+import 'package:anotai_vos/pages/change_password.dart';
 import 'package:flutter/material.dart';
 import 'package:anotai_vos/pages/login_page.dart';
 
