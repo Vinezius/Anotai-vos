@@ -1,4 +1,5 @@
 import 'package:anotai_vos/models/nota.dart';
+import 'package:anotai_vos/pages/open_nota_page.dart';
 import 'package:flutter/material.dart';
 import 'package:anotai_vos/repositories/nota_repository.dart';
 import 'package:intl/intl.dart';
@@ -71,9 +72,8 @@ class _NotaPageState extends State<NotaPage> {
             itemBuilder: (BuildContext context, int nota) {
               return GestureDetector(
                 onTap: () {
-                  print("nota: $nota");
-                  print(
-                      "Exemplo de data formata: ${formatacaoData.format(dataAtual).replaceAll('-', '/')}");
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => OpenNotaPage()));
                 },
                 child: ListTile(
                   title: Text(tabela[nota].titulo),
